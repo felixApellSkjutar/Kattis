@@ -1,24 +1,15 @@
-a, b = [int(x) for x in input().split(' ')]
-
-shoppingList = []
-for i in range(0,a):
-    shoppingList.append(input().split(' '))
+n, m = map(int, input().split())
 
 
-shopDict = dict()
+setList = []
 
-for x in shoppingList:
-    for y in x:
-        if (y in shopDict):
-            shopDict[y] += 1
+for i in range(n):
+    setList.append(set(input().split(' ')))
 
-resArr = []
 
-for s in shopDict:
-    if shopDict[s] >= a:
-        resArr.append(s)
+itemSet = set.intersection(*setList)
 
-print(len(resArr))
-resArr.sort()
-for s in resArr:
-    print(s)
+print(len(itemSet))
+
+for item in sorted(itemSet):
+    print(item)
